@@ -84,21 +84,24 @@ function TodoCreate() {
   const onToggle = () => setOpen(!open);
   const onChange = e => setValue(e.target.value);
 
-const [todo, setTodo] = useState({
-  id : '',
-  text : '',
-  done: false
-});
+// const [todo, setTodo] = useState({
+//   id : '',
+//   text : '',
+//   done: false
+// });
 
   const onSubmit = e => {
      e.preventDefault(); // 새로고침 방지
-    setTodo({id : initialTodos1.length+1, text : value})
+    // setTodo({id : initialTodos1.length+1, text : value})
+    let todo = {
+      id : initialTodos1.length+1,
+      text: value,
+      done : false
+    };
     dispatch(create(todo));
     setValue('');
     setOpen(false);
   };
-
-  
 
   return (
     <>
